@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulasi: Cara Kerja Panel Surya Satelit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <!-- Konten sama persis seperti versi sebelumnya -->
+    <!-- Semua CSS sudah dipindahkan ke style.css -->
+
+    <div class="panel">
+      <h1>Simulasi: Panel Surya Satelit (Interaktif)</h1>
+      <p class="muted">Atur sudut Matahari, efisiensi, dan lihat berapa daya yang dihasilkan panel satelit.</p>
+
+      <div class="scene" id="scene">
+        <div class="sun" id="sun"></div>
+        <div class="rays" id="rays"></div>
+        <div class="satellite" id="sat">
+          <div class="hinge"></div>
+          <div class="panel-left" id="pl"><div class="panel-cell" id="plcells"></div></div>
+          <div class="panel-right" id="pr"><div class="panel-cell" id="prcells"></div></div>
+          <div class="sat-body"></div>
+        </div>
+        <div class="earth"></div>
+      </div>
+
+      <div style="display:flex;gap:12px;margin-top:12px">
+        <div style="flex:1" class="controls panel">
+          <div class="row"><label>Sudut Matahari (°)</label><input id="angle" type="range" min="0" max="180" value="30"></div>
+          <div class="row"><label>Mode Auto-Track</label><input id="autotrack" type="checkbox" checked></div>
+          <div class="row"><label>Eclipse (bayangan)</label><input id="eclipse" type="checkbox"></div>
+          <div class="row"><label>Efisiensi panel (%)</label><input id="eff" type="number" min="5" max="40" value="30"></div>
+          <div class="row"><label>Luas total panel (m²)</label><input id="area" type="number" min="0.1" step="0.1" value="2.0"></div>
+        </div>
+        <div style="width:220px" class="panel">
+          <div class="readout">
+            <div class="small">Irradiance (W/m²)</div>
+            <div class="big" id="irr">—</div>
+            <div style="height:8px"></div>
+            <div class="small">Daya perkiraan (W)</div>
+            <div class="big" id="power">—</div>
+            <div style="height:8px"></div>
+            <div class="small">Catatan</div>
+            <div class="muted-note" id="note">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="doc" style="margin-top:14px">
+        <h3>Ringkasan teknis singkat</h3>
+        <p>Panel surya satelit menerima sinar Matahari langsung di luar atmosfer...</p>
+        <footer>Simulasi edukasi — angka disederhanakan untuk pembelajaran.</footer>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h1>Detail & Perhitungan</h1>
+      <p class="muted">Gunakan kontrol untuk bereksperimen.</p>
+      <div style="margin-top:8px">
+        <h3>Parameter</h3>
+        <ul style="color:#cfe8ff">
+          <li>Solar constant: 1361 W/m²</li>
+          <li>Sudut insiden mengikuti cosinus</li>
+          <li>Efisiensi panel multi-junction</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
